@@ -3,11 +3,12 @@ const words = ["PAROLA", "CANE", "PROVA", "ANGELICA"];
 const attempSpan = document.querySelector(".attemps");
 const lettersSpan = document.querySelector(".letters");
 
-let attemps;
+let attemps = 5;
 let errors;
 let wordToGuess = "";
 let usedLetters = "";
 let displayWord = "";
+let position = 0;
 
 attempSpan.innerHTML = `${attemps}`;
 lettersSpan.innerHTML = `${usedLetters}`;
@@ -33,4 +34,19 @@ function initGame() {
     [{ transform: "translateY(-700px)" }, { transform: "translateY(0)" }],
     700
   );
+}
+
+function selectWord() {
+  let wordSelector = Math.round(Math.random() * words.length - 1); //generate a random number between 1 and words lenght
+  wordToGuess = words[wordSelector]; //take one word in the array
+  let maskeredWord = maskWord(wordToGuess); //mask the word with "_"
+  document.game.finalWord.value = maskeredWord; //display maskered word
+  displayWord = maskeredWord;
+  console.log(wordToGuess + ", " + displayWord);
+}
+
+function maskWord(word) {
+  let mask = "";
+  for (let i = 0; i < word.length; i++) mask += "-";
+  return mask;
 }
