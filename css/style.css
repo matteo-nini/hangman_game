@@ -11,11 +11,48 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.background {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
   background: url("../assets/background.svg") no-repeat bottom;
   background-size: cover;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  z-index: -1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  text-align: center;
+  border: none;
+  color: black;
 }
 
 h1 {
   margin-bottom: 2%;
+}
+
+.lettersContainer {
+  width: 75%;
+  flex-wrap: wrap;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background-color: aquamarine;
+  margin: 10px;
 }

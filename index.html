@@ -34,12 +34,39 @@
     <title>Hangman Game | A JavaScript Game</title>
   </head>
   <body>
+    <div class="background"></div>
     <h1>Hangman Game | A JavaScript Game</h1>
-    <form action="#">
-      <label for="finalWord">Word is: </label>
+    <span>The Word you must guest is:</span>
+    <form name="game">
       <input type="text" name="finalWord" />
-      <label for="letter">Insert a letter: </label>
-      <input type="text" name="letter" />
     </form>
+
+    <div class="lettersContainer">
+      <button onclick="javascript:userSelect('A')">A</button>
+      <button onclick="javascript:userSelect('B')">B</button>
+      <button onclick="javascript:userSelect('C')">C</button>
+      <button onclick="javascript:userSelect('D')">D</button>
+      <button onclick="javascript:userSelect('E')">E</button>
+      <button onclick="javascript:userSelect('F')">F</button>
+      <button onclick="javascript:userSelect('G')">G</button>
+      <button onclick="javascript:userSelect('H')">H</button>
+      <button onclick="javascript:userSelect('I')">I</button>
+      <button onclick="javascript:userSelect('L')">L</button>
+      <button onclick="javascript:userSelect('M')">M</button>
+      <button onclick="javascript:userSelect('N')">N</button>
+      <button onclick="javascript:userSelect('O')">O</button>
+      <button onclick="javascript:userSelect('P')">P</button>
+      <button onclick="javascript:userSelect('Q')">Q</button>
+      <button onclick="javascript:userSelect('R')">R</button>
+      <button onclick="javascript:userSelect('S')">S</button>
+      <button onclick="javascript:userSelect('T')">T</button>
+      <button onclick="javascript:userSelect('U')">U</button>
+      <button onclick="javascript:userSelect('V')">V</button>
+      <button onclick="javascript:userSelect('Z')">Z</button>
+    </div>
+
+    <p>Lettere usate: <span class="letters"></span></p>
+    <p>Tentativi rimasti: <span class="attemps"></span></p>
+    <script src="js/app.js"></script>
   </body>
 </html>
