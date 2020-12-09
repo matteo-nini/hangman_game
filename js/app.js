@@ -3,37 +3,26 @@ const words = ["PAROLA", "CANE", "PROVA", "ANGELICA"];
 const attempSpan = document.querySelector(".attemps");
 const lettersSpan = document.querySelector(".letters");
 
-let attemps = 5;
-let errors = 0;
-let wordToGuess = "";
-let usedLetters = "";
-let displayWord = "";
-let position = 0;
-
-attempSpan.innerHTML = `${attemps}`;
-lettersSpan.innerHTML = `${usedLetters}`;
+let attemps;
+let errors;
+let wordToGuess;
+let usedLetters;
+let displayWord;
+let position;
 
 window.onload = initGame();
 
 function initGame() {
   //RESET VALUES
-  selectWord();
   errors = 0;
   attemps = 5;
-
-  // ANIMATIONS
-  const bg = document.querySelector(".background");
-  const title = document.querySelector("h1");
-
-  bg.animate([{ bottom: "-100%" }, { bottom: "0" }], 700);
-  title.animate(
-    [{ transform: "translateY(-700px)" }, { transform: "translateY(0)" }],
-    700
-  );
-  document.game.finalWord.animate(
-    [{ transform: "translateY(-700px)" }, { transform: "translateY(0)" }],
-    700
-  );
+  wordToGuess = "";
+  displayWord = "";
+  usedLetters = "";
+  position = 0;
+  attempSpan.innerHTML = `${attemps}`;
+  lettersSpan.innerHTML = `${usedLetters}`;
+  selectWord();
 }
 
 function selectWord() {
@@ -94,7 +83,7 @@ function userSelect(letter) {
 
     //check the errors (or the attemps)
     if (attemps == 0 || errors == 5) {
-      alert("Hai perso!");
+      alert("Hai perso!\nLa parola era: " + wordToGuess);
       newGame();
     }
   }
@@ -103,6 +92,6 @@ function userSelect(letter) {
 //new game function
 function newGame() {
   let choose = prompt("Vuoi fare un'altra partita? Y/N", "");
-  if (choose == "Y") initGame();
+  if (choose == "Y") window.location.reload();
   else alert("Ok! Grazie per aver giocato!");
 }
