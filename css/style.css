@@ -12,21 +12,45 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  overflow: hidden;
 }
 
 .background {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: url("../assets/background.svg") no-repeat bottom;
   background-size: cover;
   z-index: -1;
+  animation: fadeIn 3s linear 0s 1 normal forwards;
+  opacity: 0;
+}
+
+h1 {
+  text-align: center;
+  animation: fadeIn 3s linear 2s 1 normal forwards;
+  opacity: 0;
+}
+
+h4 {
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeIn 3s linear 3s 1 normal forwards;
+  opacity: 0;
+}
+
+span {
+  animation: fadeIn 3s linear 4s 1 normal forwards;
+  opacity: 0;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  animation: fadeIn 3s linear 5s 1 normal forwards;
+  opacity: 0;
 }
 
 input {
@@ -34,10 +58,7 @@ input {
   border: none;
   color: black;
   font-size: 30px;
-}
-
-h1 {
-  margin-bottom: 2%;
+  background-color: white;
 }
 
 .lettersContainer {
@@ -47,6 +68,8 @@ h1 {
   display: flex;
   justify-content: space-around;
   margin-top: 30px;
+  animation: fadeIn 3s linear 6s 1 normal forwards;
+  opacity: 0;
 }
 
 button {
@@ -54,6 +77,38 @@ button {
   height: 70px;
   border-radius: 50%;
   border: none;
-  background-color: aquamarine;
+  background-color: white;
+  border: 1px solid black;
   margin: 10px;
+}
+
+p {
+  animation: fadeIn 3s linear 7s 1 normal forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .background {
+    background-size: contain;
+    height: 80vh;
+  }
+  .lettersContainer {
+    height: 20vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  button {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+  }
 }
