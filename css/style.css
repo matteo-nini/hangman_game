@@ -61,7 +61,7 @@ input {
   background-color: white;
 }
 
-.lettersContainer {
+.container {
   width: 75%;
   flex-wrap: wrap;
   padding: 10px;
@@ -72,14 +72,16 @@ input {
   opacity: 0;
 }
 
-button {
+.container > div {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border: none;
   background-color: white;
   border: 1px solid black;
   margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 p {
@@ -106,7 +108,7 @@ p {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  button {
+  div {
     width: 20px;
     height: 20px;
     margin: 5px;
