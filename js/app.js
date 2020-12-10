@@ -1,4 +1,4 @@
-const words = [
+/*const words = [
   "PAROLA",
   "CANE",
   "PROVA",
@@ -7,6 +7,18 @@ const words = [
   "ARACNOFOBIA",
   "CASA",
   "AEROPLANO",
+];*/
+
+/**
+ * Object contains all words and relative suggestion
+ */
+const words = [
+  { word: "WORD", suggest: "You must guess the ..." },
+  { word: "DOG", suggest: "The human best friend" },
+  { word: "SUBMARINE", suggest: "Warship used underwater" },
+  { word: "ARACHNOPHOBIA", suggest: "Fear of spiders" },
+  { word: "HOME", suggest: "The place where you're living" },
+  { word: "AEROPLANE", suggest: "Flying vehicle with fixed wings" },
 ];
 
 const attempSpan = document.querySelector(".attemps");
@@ -18,6 +30,7 @@ let wordToGuess;
 let usedLetters;
 let displayWord;
 let position;
+let wordSelector = Math.round(Math.random() * words.length - 1); //generate a random number between 1 and words lenght
 
 window.onload = initGame();
 
@@ -42,8 +55,7 @@ function initGame() {
  * than take one word, mask it with '-' and display it
  */
 function selectWord() {
-  let wordSelector = Math.round(Math.random() * words.length - 1); //generate a random number between 1 and words lenght
-  wordToGuess = words[wordSelector]; //take one word in the array
+  wordToGuess = words[wordSelector].word; //take one word in the array
   let maskeredWord = maskWord(wordToGuess); //mask the word with "_"
   document.game.finalWord.value = maskeredWord; //display maskered word
   displayWord = maskeredWord;
@@ -107,11 +119,22 @@ function userSelect(letter) {
     attemps--;
     attempSpan.innerHTML = `${attemps}`;
 
-    //check the errors (or the attemps)
-    if (attemps == 0 || errors == 5) {
-      alert("Hai perso!\nLa parola era: " + wordToGuess);
-      newGame();
-    }
+    checkErrors();
+  }
+}
+
+/**
+ * This function check the errors
+ * and suggest the user
+ */
+function checkErrors() {
+  if (attemps <= 3)
+    document.querySelector(
+      ".suggest"
+    ).innerHTML = `<b>SUGGEST:</b> ${words[wordSelector].suggest}`;
+  if (errors == 5) {
+    alert("Hai perso!\nLa parola era: " + wordToGuess);
+    newGame();
   }
 }
 
