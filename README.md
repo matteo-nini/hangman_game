@@ -17,8 +17,8 @@ I've also provided a mobile version, just for fun :smile:
 <br><br>
 
 
-### CodeSandbox Demo at
-[matteo-nini@CodeSandbox](https://codesandbox.io/s/bold-merkle-gotbz)
+### CodeSandbox Demo
+[@CodeSandbox](https://codesandbox.io/s/hangman-game-gotbz)
 
 ### Deploy link at
 [The Hangman Game | A Js game](https://thehangman-game.netlify.app/)
