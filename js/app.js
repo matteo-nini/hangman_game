@@ -1,4 +1,13 @@
-const words = ["PAROLA", "CANE", "PROVA", "ANGELICA"];
+const words = [
+  "PAROLA",
+  "CANE",
+  "PROVA",
+  "ANGELICA",
+  "SOTTOMARINO",
+  "ARACNOFOBIA",
+  "CASA",
+  "AEROPLANO",
+];
 
 const attempSpan = document.querySelector(".attemps");
 const lettersSpan = document.querySelector(".letters");
@@ -12,6 +21,9 @@ let position;
 
 window.onload = initGame();
 
+/**
+ * Inizialize game by reset all variables
+ */
 function initGame() {
   //RESET VALUES
   errors = 0;
@@ -25,6 +37,10 @@ function initGame() {
   selectWord();
 }
 
+/**
+ * Generate a random number between 1 and words[].lenght
+ * than take one word, mask it with '-' and display it
+ */
 function selectWord() {
   let wordSelector = Math.round(Math.random() * words.length - 1); //generate a random number between 1 and words lenght
   wordToGuess = words[wordSelector]; //take one word in the array
@@ -34,12 +50,22 @@ function selectWord() {
   console.log(wordToGuess + ", " + displayWord);
 }
 
+/**
+ * This function make the mask of the selected word
+ * @param {string} word the word randomly chosen
+ */
 function maskWord(word) {
   let mask = "";
   for (let i = 0; i < word.length; i++) mask += "-";
   return mask;
 }
 
+/**
+ * This function take the letter chosen by the user
+ * and elaborate it make the game works
+ *
+ * @param {string} letter the letter chosen by user
+ */
 function userSelect(letter) {
   //Check if the user just click the letter
   if (usedLetters.indexOf(letter) != -1) {
@@ -89,7 +115,10 @@ function userSelect(letter) {
   }
 }
 
-//new game function
+/**
+ * This function is load after game is finished,
+ * and ask the user if he/she want play again
+ */
 function newGame() {
   let choose = prompt("Vuoi fare un'altra partita? Y/N", "");
   if (choose == "Y") window.location.reload();
