@@ -144,6 +144,6 @@ function checkErrors() {
  */
 function newGame() {
   let choose = prompt("Vuoi fare un'altra partita? Y/N", "");
-  if (choose == "Y") window.location.reload();
+  if (choose == "Y" || choose == "y") window.location.reload();
   else alert("Ok! Grazie per aver giocato!");
 }
