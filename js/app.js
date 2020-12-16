@@ -1,14 +1,3 @@
-/*const words = [
-  "PAROLA",
-  "CANE",
-  "PROVA",
-  "ANGELICA",
-  "SOTTOMARINO",
-  "ARACNOFOBIA",
-  "CASA",
-  "AEROPLANO",
-];*/
-
 /**
  * Object contains all words and relative suggestion
  */
@@ -20,6 +9,8 @@ const words = [
   { word: "HOME", suggest: "The place where you're living" },
   { word: "AEROPLANE", suggest: "Flying vehicle with fixed wings" },
 ];
+
+let alphabet = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
 
 const attempSpan = document.querySelector(".attemps");
 const lettersSpan = document.querySelector(".letters");
@@ -48,6 +39,7 @@ function initGame() {
   attempSpan.innerHTML = `${attemps}`;
   lettersSpan.innerHTML = `${usedLetters}`;
   selectWord();
+  initKeyboard();
 }
 
 /**
@@ -60,6 +52,17 @@ function selectWord() {
   document.game.finalWord.value = maskeredWord; //display maskered word
   displayWord = maskeredWord;
   console.log(wordToGuess + ", " + displayWord);
+}
+
+function initKeyboard() {
+  for (let i = 0; i < alphabet.length; i++) {
+    let div = document.createElement("div");
+    document.querySelector(".container").appendChild(div);
+    div.innerText = alphabet[i];
+    div.addEventListener("click", function () {
+      userSelect(alphabet[i]);
+    });
+  }
 }
 
 /**
