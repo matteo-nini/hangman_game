@@ -23,12 +23,10 @@ let displayWord;
 let position;
 let wordSelector = Math.round(Math.random() * words.length - 1); //generate a random number between 1 and words lenght
 
-window.onload = initGame();
-
 /**
  * Inizialize game by reset all variables
  */
-function initGame() {
+(function () {
   //RESET VALUES
   errors = 0;
   attemps = 5;
@@ -40,7 +38,7 @@ function initGame() {
   lettersSpan.innerHTML = `${usedLetters}`;
   selectWord();
   initKeyboard();
-}
+})();
 
 /**
  * Generate a random number between 1 and words[].lenght
@@ -147,6 +145,6 @@ function checkErrors() {
  */
 function newGame() {
   let choose = prompt("Vuoi fare un'altra partita? Y/N", "");
-  if (choose == "Y" || choose == "y") window.location.reload();
+  if (choose.toLowerCase() === "y") window.location.reload();
   else alert("Ok! Grazie per aver giocato!");
 }
